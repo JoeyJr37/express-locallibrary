@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%#views/index.ejs%>
+<%extend('layout[, data]')%>
+
+<h1><%=title%></h1>
+<p> Welcome to the Local Library, a very basic Express website
+    developed as a tutorial example on the Mozilla Developer Network.
+</p>
+
+<h1> Dynamic Content </h1>
+
+<%if (err) {%>
+  <p>Error getting dyanmic content</p>
+<%} else {%>
+  <p> The library has the following record counts: </p>
+  <ul>
+    <li>Books: <%=!{data.book_count}%> </li>
+    <li>Copies: <%=!{data.book_instance_count}%> </li>
+    <li>Copies available: <%=!{data.book_instance_available_count}%></li>
+    <li>Authors: <%=!{data.author_count}%></li>
+    <li>Genres: <%=!{data.genre_count}%></li>
+  </ul>
+  <%}%>
