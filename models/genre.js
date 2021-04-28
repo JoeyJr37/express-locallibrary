@@ -8,11 +8,11 @@ var GenreSchema = new Schema(
     }
 );
 
-// Virtual for book's URL
+// Virtual for genre's URL
 GenreSchema
 .virtual('url')
 .get(function() {
-    return '/catalog/book/' + this._id;
+    return '/catalog/genre/' + this._id;
 });
 
 //export model
